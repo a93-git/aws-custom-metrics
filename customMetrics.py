@@ -11,6 +11,7 @@ UNIT_MEM = 'Percent'
 
 from datetime import datetime
 import subprocess
+import boto3
 
 subprocess.call("instanceid.sh")
 
@@ -20,9 +21,11 @@ with open('instance-id', 'r') as f:
 # Retrieve the current timestamp
 timestamp = datetime.timestamp(datetime.now())
 
+cloudwatch_client = boto3.client('cloudwatch')
+
 def put_mem_metric_data():
     """ Sends memory metric data to cloudwatch """
-    response = client.put_metric_data(
+    response = cloudwatch_client.put_metric_data(
         Namespace=NAMESPACE,
         MetricData=[
             {
