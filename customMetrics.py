@@ -9,11 +9,13 @@ MEM_METRIC = "MemUtil"
 NAMESPACE = "Boto/Metric"
 UNIT_MEM = 'Percent'
 
-with open('instance-id' as f):
-    INSTANCE_ID = f.readline()
-
 from datetime import datetime
 import subprocess
+
+subprocess.call("instanceid.sh")
+
+with open('instance-id', 'r') as f:
+    INSTANCE_ID = f.readline()
 
 # Retrieve the current timestamp
 timestamp = datetime.timestamp(datetime.now())
