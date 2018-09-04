@@ -29,8 +29,7 @@ It retrieves the:
 3. Clone the repo in your local directory
 4. Copy the contents to home directory of current user
 5. Add the following entry in crontab:
-<pre><code>*/5 * * * * /path/to/python/executable
-/home/[username]/customMetrics.py</pre></code>
+<pre><code>*/5 * * * * /path/to/python/executable /home/[username]/customMetrics.py</pre></code>
 
 ## Resources
 1. <a
