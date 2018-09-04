@@ -24,9 +24,8 @@ It retrieves the:
 <pre><code>python -V</pre></code>
 2. Check Boto 3 is installed
 <pre><code>python -m boto3</pre></code>
-<pre>Above command should give an error like below</pre>
-![Alt
-erroMessage](https://github.com/a93-git/aws-custom-metrics/blob/master/boto3Error.png)
+* Above command should give an error like below
+![Alt erroMessage](https://github.com/a93-git/aws-custom-metrics/blob/master/boto3Error.png)
 3. Clone the repo in your local directory
 4. Copy the contents to home directory of current user
 5. Add the following entry in crontab:
