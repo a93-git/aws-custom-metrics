@@ -14,7 +14,7 @@ from datetime import datetime
 import subprocess
 import boto3
 import os
-
+import time
 
 currentDir = os.getcwd()
 instanceIdPath = currentDir + '/instance-id'
@@ -33,7 +33,10 @@ except:
     print('Error here')    
 
 # Retrieve the current timestamp
-timestamp = datetime.timestamp(datetime.now())
+try:
+    timestamp = datetime.timestamp(datetime.now())
+except AttributeError:
+    timestamp = time.mktime(datetime.now().timetuple())
 
 cloudwatch_client = boto3.client('cloudwatch')
 
@@ -102,7 +105,10 @@ def startDisk():
             temp.append(i)
 
     for i in temp:
-        z = i.strip().split(sep='\t')
+        try:
+            z = i.strip().split(sep='\t')
+        except TypeError:
+            z = i.strip().split("\t")
         put_disk_metric_data(z[1], z[0])
 
 startDisk()
