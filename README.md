@@ -15,7 +15,7 @@ It retrieves the:
 
 ## Requirements
 - Python 2.7+ or Python 3.x
-- Boto3 library
+- Boto3 package 
 
 
 
